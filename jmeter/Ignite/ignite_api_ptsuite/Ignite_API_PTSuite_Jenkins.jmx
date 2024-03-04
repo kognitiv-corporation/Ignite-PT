@@ -9,7 +9,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="Session" elementType="Argument">
             <stringProp name="Argument.name">Session</stringProp>
-            <stringProp name="Argument.value">${__P(sessionId,452a14e4-e137-45d0-a0b4-506825729bc8)}</stringProp>
+            <stringProp name="Argument.value">${__P(sessionId,97922816-182a-47fb-b636-bfef6f0023bc)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="P_BaseURL" elementType="Argument">
@@ -85,6 +85,31 @@
           <elementProp name="WarmupLoops" elementType="Argument">
             <stringProp name="Argument.name">WarmupLoops</stringProp>
             <stringProp name="Argument.value">${__P(WarmupLoops,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Token_1" elementType="Argument">
+            <stringProp name="Argument.name">Token_1</stringProp>
+            <stringProp name="Argument.value">4f5377c1-ae06-4432-ad17-a3e96a3874d0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Token_2" elementType="Argument">
+            <stringProp name="Argument.name">Token_2</stringProp>
+            <stringProp name="Argument.value">ec436911-831f-4711-af91-58b53ea65299</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Token_3" elementType="Argument">
+            <stringProp name="Argument.name">Token_3</stringProp>
+            <stringProp name="Argument.value">5515966e-6fa4-4bba-95a6-a0d8ad071945</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Token_4" elementType="Argument">
+            <stringProp name="Argument.name">Token_4</stringProp>
+            <stringProp name="Argument.value">7288d85e-b2d3-49e8-bfdc-1b18a6bc1fc0</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="Token_5" elementType="Argument">
+            <stringProp name="Argument.name">Token_5</stringProp>
+            <stringProp name="Argument.value">ca99da8b-cf95-46fb-9d21-d8ff0d34267f</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -229,18 +254,6 @@
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
-        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="false"/>
-        <hashTree>
-          <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
-            <collectionProp name="ModuleController.node_path">
-              <stringProp name="764597751">Test Plan</stringProp>
-              <stringProp name="-1227630537">Ignite-Rest</stringProp>
-              <stringProp name="-1402880153">Modules</stringProp>
-              <stringProp name="-1459991577">Session Id Module</stringProp>
-            </collectionProp>
-          </ModuleController>
-          <hashTree/>
-        </hashTree>
         <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
           <stringProp name="throughput">${TargetThroughputThreadGroup}</stringProp>
           <intProp name="calcMode">2</intProp>
@@ -286,7 +299,7 @@
               </elementProp>
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Session</stringProp>
-                <stringProp name="Header.value">${Session}</stringProp>
+                <stringProp name="Header.value">${__V(Token_${__Random(1,5,)})}</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
@@ -303,28 +316,6 @@
             <stringProp name="variableNames">p_03_E_LocationReference,p_03_TTypeExt_Reference,p_03_TransactionExternalRef,p_03_prodExt_Reference,p_03_BasketItemQty,p_03_BasketTotalIprice,p_03_BasketTotalIpoints,p_03_BasketTotalIprofit,p_03_Duplicate_transaction,p_03_Missing_ProdItem,p_03_UpdatedMember_points total,p_03_Promotion_Success,p_03_Custom_External_reference,p_03_CheckBox_value,p_03_Integer_Value,p_03_Money_value,p_03_Text_Value,p_03_List_Value,p_03_Date_value,p_03_Dropdown Value,p_03_MultipleSelected_Value </stringProp>
           </CSVDataSet>
           <hashTree/>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="false">
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="script">String str=&quot;&quot;;
-String str1=&quot;&quot;;
-
-for(int i=1;i&lt;=${Basket_Count};i++)
-{
-str+=&quot;&lt;TransactionBasketItem&gt;          &lt;ProductExternalReference&gt;${p_03_prodExt_Reference}&lt;/ProductExternalReference&gt;          &lt;BasketItemQty&gt;${p_03_BasketItemQty}&lt;/BasketItemQty&gt;          &lt;BasketItemTotalPrice&gt;${p_03_BasketTotalIprice}&lt;/BasketItemTotalPrice&gt;          &lt;BasketItemTotalPoints&gt;${p_03_BasketTotalIpoints}&lt;/BasketItemTotalPoints&gt;          &lt;BasketItemTotalProfit&gt;${p_03_BasketTotalIprofit}&lt;/BasketItemTotalProfit&gt;        &lt;/TransactionBasketItem&gt;&quot;;
-
-str1+=&quot;&lt;CustomFieldStorage&gt;          &lt;CustomFieldExternalReference&gt;${p_03_Custom_External_reference}&lt;/CustomFieldExternalReference&gt;          &lt;CustomFieldStorageValue&gt;            &lt;CheckboxValue&gt;${p_03_CheckBox_value}&lt;/CheckboxValue&gt;            &lt;IntegerValue&gt;${p_03_Integer_Value}&lt;/IntegerValue&gt;            &lt;MoneyValue&gt;${p_03_Money_value}&lt;/MoneyValue&gt;            &lt;TextValue&gt;${p_03_Text_Value}&lt;/TextValue&gt;            &lt;ListValue&gt;${p_03_List_Value}&lt;/ListValue&gt;            &lt;DateValue&gt;${p_03_Date_value}&lt;/DateValue&gt;            &lt;DropDownValue&gt;${p_03_Dropdown Value}&lt;/DropDownValue&gt;            &lt;AddressValue xsi:nil=\&quot;true\&quot; /&gt;            &lt;MultipleChoiceSelectedValue&gt;${p_03_MultipleSelected_Value}&lt;/MultipleChoiceSelectedValue&gt;            &lt;MultipleChoiceSelectedValue&gt;${p_03_MultipleSelected_Value}&lt;/MultipleChoiceSelectedValue&gt;         &lt;/CustomFieldStorageValue&gt;        &lt;/CustomFieldStorage&gt;&quot;;
-}
-
-//print(str);
-vars.put(&quot;TRANSACTION_BASKET_STRING&quot;, str);
-vars.put(&quot;CUSTOM_FIELD_STORAGE&quot;,str1);
-return str ;
-return str1;</stringProp>
-            <stringProp name="scriptLanguage">groovy</stringProp>
-          </JSR223PreProcessor>
-          <hashTree/>
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="false">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">c_AppTransactionID</stringProp>
@@ -336,11 +327,10 @@ return str1;</stringProp>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="1985431299">&lt;ReturnCode&gt;0&lt;/ReturnCode&gt;</stringProp>
-              <stringProp name="113174642">${c_AppTransactionID}</stringProp>
+              <stringProp name="49586">200</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
-            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
             <intProp name="Assertion.test_type">2</intProp>
             <stringProp name="Assertion.scope">all</stringProp>
@@ -516,79 +506,6 @@ return str1;</stringProp>
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Modules" enabled="true">
-        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
-        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
-          <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
-        </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
-        <longProp name="ThreadGroup.start_time">1450420451000</longProp>
-        <longProp name="ThreadGroup.end_time">1450420451000</longProp>
-        <boolProp name="ThreadGroup.scheduler">false</boolProp>
-        <stringProp name="ThreadGroup.duration"></stringProp>
-        <stringProp name="ThreadGroup.delay"></stringProp>
-        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
-      </ThreadGroup>
-      <hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Session Id Module" enabled="true"/>
-        <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="identity token" enabled="true">
-            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-              <collectionProp name="Arguments.arguments">
-                <elementProp name="" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">grant_type=client_credentials</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                </elementProp>
-              </collectionProp>
-            </elementProp>
-            <stringProp name="HTTPSampler.domain">azure-qa.kognitivloyalty.com</stringProp>
-            <stringProp name="HTTPSampler.port"></stringProp>
-            <stringProp name="HTTPSampler.protocol">HTTPS</stringProp>
-            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">/auth/connect/token</stringProp>
-            <stringProp name="HTTPSampler.method">POST</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
-            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-            <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          </HTTPSamplerProxy>
-          <hashTree>
-            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
-              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-              <stringProp name="RegexExtractor.refname">token</stringProp>
-              <stringProp name="RegexExtractor.regex">&quot;access_token&quot;:&quot;(.+?)&quot;</stringProp>
-              <stringProp name="RegexExtractor.template">$1$</stringProp>
-              <stringProp name="RegexExtractor.default">invalid_token</stringProp>
-              <stringProp name="RegexExtractor.match_number">0</stringProp>
-            </RegexExtractor>
-            <hashTree/>
-            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-              <collectionProp name="HeaderManager.headers">
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Content-Type</stringProp>
-                  <stringProp name="Header.value">application/x-www-form-urlencoded; charset=UTF-8</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Authorization</stringProp>
-                  <stringProp name="Header.value">Basic OTQwODEzMTE5NTczODE2ODo5MVB4N3hnR0RqeVFocXMyUmJYN2Q2TXc=</stringProp>
-                </elementProp>
-                <elementProp name="" elementType="Header">
-                  <stringProp name="Header.name">Accept</stringProp>
-                  <stringProp name="Header.value">application/json</stringProp>
-                </elementProp>
-              </collectionProp>
-            </HeaderManager>
-            <hashTree/>
-          </hashTree>
-        </hashTree>
-      </hashTree>
     </hashTree>
   </hashTree>
 </jmeterTestPlan>
