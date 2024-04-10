@@ -24,7 +24,7 @@
           </elementProp>
           <elementProp name="Duration" elementType="Argument">
             <stringProp name="Argument.name">Duration</stringProp>
-            <stringProp name="Argument.value">${__P(Duration,4200)}</stringProp>
+            <stringProp name="Argument.value">${__P(Duration,3600)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ThreadsGroup" elementType="Argument">
@@ -49,7 +49,7 @@
           </elementProp>
           <elementProp name="Run_time" elementType="Argument">
             <stringProp name="Argument.name">Run_time</stringProp>
-            <stringProp name="Argument.value">${__P(Run_time,3600)}</stringProp>
+            <stringProp name="Argument.value">${__P(Run_time,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="Loops" elementType="Argument">
@@ -403,7 +403,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="02_Ignite - Get Product List" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="03_Ignite - Get Product List" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -460,7 +460,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="02_Ignite - Get GDM Product Data" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="04_Ignite - Get GDM Product Data" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -517,7 +517,7 @@
           </ConstantTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="02_Ignite - Save Campaign" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="05_Ignite - Save Campaign" enabled="true">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -525,9 +525,27 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
     &quot;name&quot;: &quot;New Years Campaign ${__Random(100000,999999)}&quot;,&#xd;
-    &quot;objectiveDTO&quot;: {&#xd;
-        &quot;id&quot;: 1&#xd;
-    },&#xd;
+    &quot;objectiveDTOs&quot;: [&#xd;
+        {&#xd;
+            &quot;id&quot;: 1,&#xd;
+            &quot;targetDTOs&quot;: [&#xd;
+                {&#xd;
+                    &quot;id&quot;: 2,&#xd;
+                    &quot;revenueTargetAmount&quot;: 10&#xd;
+                }&#xd;
+            ]&#xd;
+        },&#xd;
+        {&#xd;
+            &quot;id&quot;: 2,&#xd;
+            &quot;targetDTOs&quot;: [&#xd;
+                {&#xd;
+                    &quot;id&quot;: 2,&#xd;
+                    &quot;revenueTargetAmount&quot;: 10&#xd;
+                }&#xd;
+            ]&#xd;
+        }&#xd;
+    ],&#xd;
+    &quot;endDate&quot;: 10,&#xd;
     &quot;endDateTypeDTO&quot;: {&#xd;
         &quot;id&quot;: 1&#xd;
     },&#xd;
@@ -541,7 +559,7 @@
     &quot;channelDTO&quot;: {&#xd;
         &quot;id&quot;: 1&#xd;
     },&#xd;
-    &quot;startDate&quot;: &quot;${CURRENT_UNIX_TIME}&quot;,&#xd;
+    &quot;startDate&quot;: ${CURRENT_UNIX_TIME},&#xd;
     &quot;audienceDTOs&quot;: [&#xd;
         {&#xd;
             &quot;id&quot;: &quot;A000001&quot;&#xd;
@@ -561,17 +579,13 @@
     &quot;statusDTO&quot;: {&#xd;
         &quot;code&quot;: &quot;PENDING_APPROVAL&quot;&#xd;
     },&#xd;
-    &quot;targetDTO&quot;: {&#xd;
-        &quot;id&quot;: 2&#xd;
-    },&#xd;
-    &quot;revenueTargetAmount&quot;: 100.12,&#xd;
     &quot;behavioralGoalDTOs&quot;: [&#xd;
         {&#xd;
             &quot;id&quot;: 1,&#xd;
             &quot;gdmProductDTOs&quot;: [&#xd;
                 {&#xd;
                     &quot;productID&quot;: 1,&#xd;
-                    &quot;unitTargetAmount&quot;: 100&#xd;
+                    &quot;unitTargetAmount&quot;: 252&#xd;
                 },&#xd;
                 {&#xd;
                     &quot;productID&quot;: 2,&#xd;
@@ -591,13 +605,12 @@
                     &quot;unitTargetAmount&quot;: 122&#xd;
                 }&#xd;
             ]&#xd;
-            &#xd;
         },&#xd;
         {&#xd;
             &quot;id&quot;: 7,&#xd;
             &quot;gdmProductDTOs&quot;: [&#xd;
                 {&#xd;
-                    &quot;productID&quot;: 8,&#xd;
+                    &quot;productID&quot;: 1,&#xd;
                     &quot;unitTargetAmount&quot;: 272&#xd;
                 },&#xd;
                 {&#xd;
